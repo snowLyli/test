@@ -1,0 +1,423 @@
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+}
+/* 表格中操作按钮样式 */
+.el-button--small{
+    width: 60px;
+    height: 30px;
+    padding: 0;
+    background: #777;
+    border:none;
+}
+.el-button--primary.is-disabled{
+    background: #aaa;
+}
+.el-button--primary.is-disabled:hover{
+    background:#bbb;
+}
+/* 日志列表表格样式 */
+.logTable .el-table--border{
+    border:none;
+}
+.logTable .el-table--border td{
+    border-right:none;
+}
+/* 去掉表格最右边边框 */
+.el-table th.is-leaf:nth-last-child(2){
+    border-right:none;
+}
+/* 表格拓展行样式 */
+.el-table__expanded-cell[class*=cell]{
+    padding: 20px 0px 20px 50px;
+}
+/* 表格单元格样式 */
+.el-table .cell, .el-table th div{
+    padding-left:0;
+    padding-right:0;
+}
+/* 单元格内容居中 */
+.el-table td, .el-table th.is-leaf{
+    text-align:center;
+}
+/* 搜索栏元素样式 */
+.el-select .el-input__inner{
+    width: 85px;
+    height:30px;
+    line-height:30px;
+    padding: 0px 3px;
+}
+.el-select .el-input__icon{
+    line-height:30px;
+}
+.el-select{
+    cursor:pointer;
+}
+/* 日期选择框样式 */
+.el-date-editor--daterange.el-input__inner{
+    width:240px;
+    height:30px;
+}
+.el-date-editor .el-input__icon,
+.el-date-editor .el-range-separator{
+    height:30px;
+    line-height:30px;
+}
+.el-range-editor .el-range-input{
+    cursor:pointer;
+}
+/* 图表日期选择格式设置 */
+.el-input__inner{
+    height:30px;
+}
+.el-date-editor--datetimerange.el-input__inner{
+    width:300px;
+}
+.el-date-editor .el-range-input{
+    width:55%;
+    font-size:12px;
+}
+/* 输入框样式 */
+.el-input{
+    width:85px;
+    height:30px;
+}
+.el-input__suffix{
+    right:0px;
+}
+.el-input .el-input__inner{
+    height:30px;
+    line-height:30px;
+    padding: 0 5px;
+}
+.el-input:hover .el-input__inner{
+    padding: 0 20px 0 5px;
+}
+/* 多级表头单元格样式 */
+.el-table thead.is-group th{
+    text-align:center;
+}
+.el-table thead.is-group .el-table_1_column_7{
+    border-right:none;
+}
+/* 分页样式 */
+.el-pagination .el-input__suffix{
+    right: 8px;
+}
+/* DDoS */
+.el-select-dropdown{
+    min-width:125px !important;
+}
+.DDoSPage .DDoSLog .searchBox .el-input{
+    width:100px;
+}
+.DDoSPage .DDoSLog .searchBox .el-input .el-input__inner{
+    width:100px;
+    height: 30px !important;
+}
+.DDoSPage .DDoSLog .searchBox .el-select__tags{
+    top: 1px;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    height: 30px;
+    overflow: hidden;
+}
+/* intrusion */
+.intrusionPage .IntrusionLog .searchBox .el-input{
+    width:100px;
+}
+.intrusionPage .IntrusionLog .searchBox .el-input .el-input__inner{
+    width:100px;
+    height: 30px !important;
+}
+.intrusionPage .IntrusionLog .searchBox .el-select__tags{
+    top: 1px;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    height: 30px;
+    overflow: hidden;
+}
+/* virus */
+.virusPage .virusLog .searchBox .el-input{
+    width:100px;
+}
+.virusPage .virusLog .searchBox .el-input .el-input__inner{
+    width:100px;
+    height: 30px !important;
+}
+.virusPage .virusLog .searchBox .el-select__tags{
+    top: 1px;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    height: 30px;
+    overflow: hidden;
+}
+/* apt */
+.sandBoxPage .sandBoxLog .searchBox .el-input{
+    width:100px;
+}
+.sandBoxPage .sandBoxLog .searchBox .el-input .el-input__inner{
+    width:100px;
+    height: 30px !important;
+}
+.sandBoxPage .sandBoxLog .searchBox .el-select__tags{
+    top: 1px;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    height: 30px;
+    overflow: hidden;
+}
+/* 流量态势表格等样式设置，如果重新设置可覆盖之前设置的样式 */
+.overallPage .el-select,
+.applyPage .el-select,
+.domainPage .el-select{
+    margin: 0 0 10px 0;
+}
+.areaPage .el-table td{
+    border-bottom:1px solid #777;
+}
+.overallPage .el-pagination{
+    padding:0;
+}
+.overallPage .el-pagination span:not([class*=suffix]),
+.overallPage .el-pagination .btn-prev .el-icon,
+.overallPage .el-pagination .btn-next .el-icon,
+.overallPage .el-pager li{
+    line-height:30px;
+}
+.flowlogPage .el-input{
+    width: 130px;
+    height: 30px;
+    margin: 0px 4px;
+}
+.flowlogPage .el-select .el-input__inner{
+    width:100%;
+}
+.flowlogPage .el-table__expanded-cell[class*=cell]{
+    padding: 10px;
+}
+/* 资产管理搜索框样式设置 */
+.managePage .el-input{
+    width:90px;
+}
+.managePage .el-input .el-input__inner{
+    width:90px;
+}
+.managePage .el-input-group__prepend{
+    background:#fff;
+    padding:0 8px;
+    color:#666;
+}
+.managePage .countBlock .el-pagination .el-select .el-input{
+    width: 80px;
+}
+.managePage .countBlock .el-pagination .el-select .el-input .el-input__inner{
+    width: 85px;
+}
+.managePage .countBlock .el-input{
+    width:50px;
+}
+.managePage .countBlock .el-input .el-input__inner{
+    width:40px;
+}
+.managePage .el-popper[x-placement^=bottom]{
+    margin-top: -5px;
+    margin-left: 28px;
+}
+/* 资产管理弹框样式 */
+.el-dialog{
+    border-radius: 0px;
+    border: 2px solid #ccc;
+}
+.el-dialog__header{
+    border-radius: 5px 5px 0 0;
+    padding: 7px 6px 7px;
+    font-size: 14px;
+    background: linear-gradient(#fff, #ccc);
+    font-weight: 600;
+    border-radius: 5px 5px 0 0;
+    padding: 7px 6px 7px;
+}
+.el-dialog__headerbtn{
+    top: 8px;
+    right: 8px;
+}
+.el-dialog__title{
+    font-size: 12px;
+}
+.el-dialog__header{
+    text-align:left;
+}
+.el-dialog--center .el-dialog__body{
+    padding:0;
+    height: 385px;
+    overflow: auto;
+}
+.el-dialog__body{
+    padding:0;
+}
+.addGroup .el-dialog--center .el-dialog__body{
+    height:300px;
+}
+.groupAdd .el-dialog--center .el-dialog__body{
+    height:240px;
+}
+.addItem .el-form-item__label{
+    line-height: 30px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-right: none;
+    text-align: center;
+    width: 90px !important;
+    padding: 0;
+}
+.addItem .switchesBox .el-form-item__label,
+.addItem .serversBox .el-form-item__label{
+    width: 115px !important;
+    border:0;
+    background:rgba(255, 255 , 255,0);
+    text-align:right;
+    margin-right:5px;
+}
+.addItem .el-form-item__content{
+    line-height:30px;
+    margin-left: 90px !important;
+}
+.addItem .serversBox .el-form-item__content{
+    margin-left: 115px !important;
+}
+.addItem .el-input .el-input__inner{
+    width: 250px;
+    height: 32px;
+    border-radius: 0;
+}
+.addItem .switchesBox .el-input .el-input__inner,
+.addItem .serversBox .el-input .el-input__inner{
+    width: 200px;
+}
+.addItem .el-form-item,
+.groupAdd .el-form-item{
+    margin-bottom: 5px;
+    padding: 0 6%;
+}
+.addItem .switchesBox .el-form-item,
+.addItem .serversBox .el-form-item{
+    padding: 0 1%;
+}
+.addItem .el-form{
+    overflow:hidden;
+}
+.addItem .el-select{
+    width:100%;
+}
+.addItem .serversBox .el-select{
+    width:200px;
+}
+.addItem .el-select>.el-input{
+    width:100% !important;
+}
+.foundSelf .el-checkbox__input.is-checked .el-checkbox__inner{
+    background:#fff;
+    border:1px solid #ccc;
+}
+.foundSelf .el-checkbox__input.is-checked+.el-checkbox__label{
+    color: #606266;
+}
+.foundSelf .el-form-item{
+    margin-bottom: 5px;
+}
+.foundSelf .el-form-item__label,
+.groupAdd .el-form-item__label{
+    line-height:30px;
+    background: #eee;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-right: none;
+    font-size:12px;
+}
+.foundSelf .el-form-item__content,
+.groupAdd .el-form-item__content{
+    line-height:30px;
+}
+.foundSelf .el-input,
+.groupAdd .el-input{
+    width:197px;
+    height:32px;
+}
+.foundSelf .el-input .el-input__inner,
+.groupAdd .el-input .el-input__inner{
+    width:100%;
+    height:32px;
+    border-radius:0;
+}
+
+.groupAdd .el-input{
+    width:200px;
+}
+.groupAdd .el-input .el-input__inner{
+    width:100%;
+}
+.foundSelf .el-checkbox__inner::after{
+    border: 1px solid #606266;
+    border-top: none;
+    border-left: none;
+}
+/* 资产告警搜索框样式 */
+.alarmPage .alarmList .selectBox .el-input{
+    width:100px;
+}
+.alarmPage .alarmList .selectBox .el-input .el-input__inner{
+    width:100%;
+}
+.alarmPage .alarmStatistic .el-input{
+    width:70px;
+}
+.alarmPage .alarmStatistic .el-input .el-input__inner{
+    width:100%;
+}
+.alarmPage .alarmStatistic  .el-date-editor--datetimerange.el-input__inner{
+    width:285px;
+}
+.alarmPage .alarmStatistic  .el-range-editor.el-input__inner{
+    padding:3px 0px 3px 5px;
+}
+/* 资产日志表头样式 */
+.alarmlogPage .el-table th{
+    padding: 8px 0;
+}
+/* 表格下拉框样式 */
+.demo-table-expand {
+    font-size: 0;
+}
+.demo-table-expand label {
+    width: 90px;
+    color: #99a9bf;
+}
+.demo-table-expand .el-form-item {
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 50%;
+}
+/* 进度条样式修改 */
+.gv6DiskPage .el-progress-bar__outer{
+    border-radius:7px;
+}
+.gv6DiskPage .el-progress-bar__inner{
+    border-radius:7px 0 0 7px;
+}
+.gv6DiskPage .el-table th{
+    padding:10px 0;
+}
+.gv6DiskPage .el-table td{
+    padding:5px 0;
+}
+/* 漏洞分析页面漏扫结果列表样式 */
+.holePage .scanRes .el-table td, .el-table th{
+    padding:8px 0;
+}

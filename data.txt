@@ -1,0 +1,297 @@
+// 攻击态势
+// DDoS攻击---DDoS攻击汇总 --- (假数据)
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=idssyslog_type
+// DDoS攻击---DDoS攻击分类 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_ips&key=EventType
+// DDoS攻击---DDoS攻击趋势 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=idssyslog_type
+// DDoS攻击---被攻击TOP10 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=DstIP&topn=10
+// DDoS攻击---DDoS感知日志 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=idssyslog_type
+// 入侵感知---攻击汇总
+// url: http://10.0.24.128:9001/query_esdata?index=ids_ips&key=idssyslog_type
+// 入侵感知---攻击分类
+// url: http://10.0.24.128:9001/query_esdata?index=ids_ips&key=EventType
+// 入侵感知---攻击趋势 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_ips&key=idssyslog_type
+// 入侵感知---攻击ip --- 半假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_ips&key=DstIP&topn=5
+// 入侵感知---入侵感知日志
+// url: http://10.0.24.128:9001/query_esdata?index=ids_ips&key=GenTime,EventType,AppName,ProtocolType,SrcIP,DstIP,SrcPort,DstPort
+// 病毒感知---病毒事件汇总
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=idssyslog_type
+// 病毒感知---病毒分布
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=VirusName&topn=7
+// 病毒感知---病毒事件趋势 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=idssyslog_type
+// 病毒感知---被攻击ip TOP10
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=DstIP&topn=10
+// 病毒感知---病毒感知日志
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=GenTime,USERID,UserName,SrcMac,DstMac,SrcIP,DstIP,Protocol,SrcPort,DstPort,AppName,VirusName,VirusFileName
+// APT攻击感知---APT攻击汇总 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=idssyslog_type
+// APT攻击感知---APT攻击分布 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=VirusName&topn=7
+// APT攻击感知---APT攻击趋势 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=idssyslog_type
+// APT攻击感知---被攻击ip TOP10 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=DstIP&topn=10
+// APT攻击感知---APT攻击感知日志 --- 假数据
+// url: http://10.0.24.128:9001/query_esdata?index=ids_av&key=GenTime,USERID,UserName,SrcMac,DstMac,SrcIP,DstIP,Protocol,SrcPort,DstPort,AppName,VirusName,VirusFileName
+
+// 流量感知
+// 总体流量---累计流量列表(依据一条真实数据模拟的假数据)
+// url: http://10.0.24.42:9001/query_esdata?index=dpi_log_port&buckets=Rxbps,Txbps
+// 总体流量---实时流量/实时流量峰值、实时流量谷值（真数据）
+// url：http://10.0.24.42:9200/logstash-dpi_log_port/doc/_search
+// param: {
+      "size" : 0,
+      "aggs": {
+         "context": {
+            "date_histogram": {
+                  "field": "@timestamp",
+                  "interval": "hour", 
+                  "format": "yyyy-MM-dd HH:mm:ss",
+                  "time_zone":"+08:00",
+                  "extended_bounds" : {
+                     "min" : start,
+               "max" : end
+                  }
+            },
+            "aggs": {
+                  "per_date_data": {
+                     "terms": {
+                        "field": "DpiHostname.keyword"
+                     },
+                     "aggs": {
+                        "grades_stats": {
+                              "extended_stats": {
+                                 "script": {
+                                    "inline": "doc[\"TxBytes\"].value",
+                                    "lang": "painless"
+                                 }
+                              }
+                        }
+                     }
+                  }
+            }
+         },
+         "total_sum": {
+            "sum": {
+                  "script": {
+                     "inline": "doc[\"TxBytes\"].value + doc[\"RxBytes\"].value",
+                     "lang": "painless"
+                  }
+            }
+         }
+      }
+}
+// 总体流量---实时连接数(假数据)
+// url: http://10.0.24.42:9200/logstash-dpi_log_port/doc/_search
+// param: {
+      "size" : 0,
+      "aggs": {
+         "context": {
+            "date_histogram": {
+                  "field": "@timestamp",
+                  "interval": "hour", 
+                  "format": "yyyy-MM-dd HH:mm:ss",
+                  "time_zone":"+08:00",
+                  "extended_bounds" : {
+                     "min" : start,
+               "max" : end
+                  }
+            },
+            "aggs": {
+                  "per_date_data": {
+                     "terms": {
+                        "field": "DpiHostname.keyword"
+                     },
+                     "aggs": {
+                        "grades_stats": {
+                              "extended_stats": {
+                                 "script": {
+                                    "inline": "doc[\"TxBytes\"].value",
+                                    "lang": "painless"
+                                 }
+                              }
+                        }
+                     }
+                  }
+            }
+         },
+         "total_sum": {
+            "sum": {
+                  "script": {
+                     "inline": "doc[\"TxBytes\"].value + doc[\"RxBytes\"].value",
+                     "lang": "painless"
+                  }
+            }
+         }
+      }
+}
+// 其余暂无
+// 区域流量数据暂无
+// 用户流量暂无
+// 应用流量--应用分类流量统计
+// 应用流量--应用分类流量统计---实时流量分布(真数据)
+// url: http://10.0.24.128:9001/query_esdata?index=dpi_log_app_update&key=AppClass
+// 应用流量--应用分类流量统计---累计流量分布(真数据)
+// url: http://10.0.24.128:9001/query_esdata?index=dpi_log_app&key=AppClass
+// 应用流量--应用分类流量统计---实时连接数分布(真数据)
+// url: http://10.0.24.128:9001/query_esdata?index=dpi_log_app_update&key=AppClass,Session
+// 应用流量--应用分类流量统计---流量详细列表(真数据)
+// url: http://10.0.24.128:9001/query_esdata?index=dpi_log_app&key=AppClass,RxBytes,TxBytes,RxPkts,TxPkts,Session&size=10&from=140
+// 应用流量--应用分类流量统计---流量流量趋势(假数据)
+// url: http://10.0.24.128:9001/query_esdata?index=dpi_log_app&key=AppClass,RxBytes,TxBytes&searchmode=term&searchkey=AppClass&searchcontext=1
+// 应用流量--应用对象流量统计(页面待完成)
+// 应用流量--应用协议流量统计(页面待完成)
+
+// 行为感知
+// 行为感知---协议精细识别---http列表
+// url: http://10.0.24.128:9001/query_esdata?index=http_dpi_xdr&key=AppType,HOST,URL,MessageType,HTTPVersion,MessageStatus,ServiceBehaviorFlag@timestamp&size=10&from=0
+// 行为感知---协议精细识别---dns列表
+// url: http://10.0.24.128:9001/query_esdata?index=dns_dpi_xdr&key=DomainName,Rcode,Rcode,IPAddr,Cname,@timestamp&size=10&from=0
+// 行为感知---协议精细识别---ftp列表
+// url: http://10.0.24.128:9001/query_esdata?index=ftp_dpi_xdr&key=UserName,TransType,FileName,TransMode,FilePath,FileSize,ResponseTime,TransTime,FTPStatus@timestamp&size=10&from=0
+// 行为感知---协议精细识别---rtsp列表
+// url: http://10.0.24.128:9001/query_esdata?index=rtsp_dpi_xdr&key=URL,UserAgent,RTPServerIP,ClientStartingPort,ClientEndingPort,ServerStartingPort,ServerEndingPort,VideoFlowNumber,AudioFlowNumber,ResponseDelay,@timestamp&size=10&from=0
+// 行为感知---协议精细识别---sip列表
+// url: http://10.0.24.128:9001/query_esdata?index=http_dpi_xdr&key=AppType,HOST,URL,MessageType,HTTPVersion,MessageStatus,ServiceBehaviorFlag@timestamp&size=10&from=0
+// 行为感知---应用精细识别---电商列表
+// url: http://10.0.24.128:9001/query_esdata?index=http_dpi_xdr&key=AppType,HOST,URL,MessageType,HTTPVersion,MessageStatus,ServiceBehaviorFlag@timestamp&size=10&from=0
+// 行为感知---应用精细识别---邮件列表
+// url: http://10.0.24.42:9001/query_esdata?index=dpi_mdr_email&key=protocol,app_sub_id,account,sender,receiver,cc,subject,content,@timestamp&size=10&from=0
+// 行为感知---应用精细识别---外卖列表
+// url: http://10.0.24.42:9001/query_esdata?index=dpi_mdr_travel&key=app_top_id,app_sub_id,action_type,account,from_addr,to_addr,call_phone,phone,@timestamp&size=10&from=0
+// 行为感知---应用精细识别---出行列表
+// url: http://10.0.24.42:9001/query_esdata?index=dpi_mdr_travel&key=app_top_id,app_sub_id,action_type,account,from_addr,to_addr,call_phone,@timestamp&size=10&from=0
+// 行为感知---应用精细识别---支付列表
+// url: http://10.0.24.42:9001/query_esdata?index=dpi_mdr_payment&key=app_top_id,app_sub_id,fingerprint,@timestamp&size=10&from=0
+// 行为感知---文件还原
+// url: http://10.0.24.42:9001/query_esdata?index=dpi_filerevert&key=Url,Host,FileID,Filesize,Proto,Request,Filetype@timestamp&size=10
+// 其余暂无
+
+// 内容感知
+// 内容感知---视频感知--视频感知列表(全部为真数据)
+// url: http://10.0.24.128:9001/query_esdata?index=dpi_video_audit&key=HOST,URL,Filesize,FileName,AppProtocol,SIP,DIP,Sport,Dport,Video_Tag,@timestamp&size=10
+// url: +&searchmode=term&searchkey=Video_Tag&searchcontext=suspected(查询)
+// 内容感知---视频感知--视频统计(真数据)
+// url: http://10.0.24.128:9001/query_esdata?index=Video_Tag
+// 内容感知---视频感知--访问不良视频ip top10(一条真数据，剩下九条为模拟)
+// url: http://10.0.24.42:9200/cars/transactions/_search
+   param: {
+      "size" : 0,
+      "aggs": {
+         "colors": {
+            "terms": {
+               "field": "color.keyword"
+            },
+            "aggs": {
+               "avg_price": { "avg": { "field": "price" }
+               },
+               "maker" : {
+                  "terms" : {
+                     "field" : "make.keyword"
+                  },
+                  "aggs" : { 
+            "grades_stats" : { "stats" : { "field" : "price" } }
+                  }
+               }
+            }
+         }
+      }
+   }
+// 内容感知---图片感知--图片感知列表(全部为真数据)
+// url: "http://10.0.24.128:9200/logstash-dpi_filerevert/doc/_search"
+// param: {
+   "size": 10000,
+   "_source": ["@timestamp","IP","Proto","Host","Url","Filetype","Filesize","ID"],
+   "query": {
+      "bool": {
+         "should": [{
+               "bool": {
+                  "must_not": [{
+                           "wildcard": {
+                              "Charset": "*"
+                           }
+                     },
+                     {
+                           "wildcard": {
+                              "Encoding": "*"
+                           }
+                     }
+                  ]
+               }
+         }]
+      }
+   }
+}
+// 内容感知---图片感知--图片统计(假数据)
+// url:
+// 内容感知---图片感知--访问不良图片ip top10(假数据)
+// url: /query_esdata?index=ids_av&key=DstIP&topn=10
+   param: {
+      "size" : 0,
+      "aggs": {
+         "colors": {
+            "terms": {
+               "field": "color.keyword"
+            },
+            "aggs": {
+               "avg_price": { "avg": { "field": "price" }
+               },
+               "maker" : {
+                  "terms" : {
+                     "field" : "make.keyword"
+                  },
+                  "aggs" : { 
+            "grades_stats" : { "stats" : { "field" : "price" } }
+                  }
+               }
+            }
+         }
+      }
+   }
+// 内容感知---文本内容感知--文本内容感知列表(全部为真数据)
+// url: "http://10.0.24.128:9200/logstash-dpi_filerevert/doc/_search"
+// param: {
+   "size": 10000,
+   "_source": ["@timestamp","IP","Proto","Host","Url","Filetype","Filesize","ID"],
+   "query": {
+      "bool": {
+         "should": [{
+                  "bool": {
+                     "must": [{
+                           "wildcard": {
+                              "Charset": "*"
+                           }
+                     }]
+                  }
+               },
+               {
+                  "bool": {
+                     "must": [{
+                           "wildcard": {
+                              "Encoding": "*"
+                           }
+                     }]
+                  }
+               }
+         ]
+      }
+   }
+}
+// 内容感知---文本内容感知--关键字列表(假数据)
+// url: 
+// 内容感知---文本内容感知--top10 命中关键字(假数据)
+// url: 
+// 内容感知---文本内容感知--top10 IP地址(假数据)
+// url:
+// 内容感知---文本内容感知--top10 网址(假数据)
+// url:
+// 内容感知---文本内容感知--top10 邮件地址(假数据)
+// url:
+
+行为感知(真数据+假数据)

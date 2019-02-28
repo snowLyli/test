@@ -1,0 +1,189 @@
+/* 各个二级页面样式 */
+.pages{
+    width:100%;
+    min-height: 100%;
+    background: rgba(225,225,225,1);
+    overflow: hidden;
+}
+/* 个页面主要内容样式 */
+.contents{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 150px;
+    overflow:hidden;
+}
+
+/* 子页导航栏样式 */
+.conNav{
+    width: 100%;
+    height: 40px;
+    background: #36404e;
+    line-height: 40px;
+    color: #fff;
+    font-size: 16px;
+    color: #555;
+    position: fixed;
+    z-index:99;
+}
+.conNav>li{
+    float:left;
+    box-sizing:border-box;
+    padding:0 15px;
+    cursor:pointer;
+    color: #aaa;
+    font-size:16px;
+}
+.conNav>.curNav{
+    color: rgb(39, 168, 255);
+    background: #191c20;
+}
+.conBox{
+    width:100%;
+    box-sizing: border-box;
+    padding:0 10px 10px;
+}
+
+/* 是否刷新开关样式 */
+.switchBox{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    text-align:right;
+    margin-top:40px;
+    line-height:40px;
+}
+.switchBox>label{
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+/* 组件各方框标题样式 */
+h6{
+    line-height:30px;
+    font-size:15px;
+    border-left: 2px solid rgb(39, 168, 255);
+    font-weight: normal;
+    padding-left:10px;
+}
+
+/* 分区区块样式 */
+.structure{
+    width:100%;
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+/* 如果同一区分左右两栏的样式 */
+.left{
+    width: 49.5%;
+    height:100%;
+    float:left;
+    box-sizing: border-box;
+}
+.right{
+    width: 49.5%;
+    height:100%;
+    float:right;
+}
+
+/* 主要内容父元素样式 */
+.boxes{
+    background:rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+}
+
+/* 主要内容样式 */
+.boxContent{
+    width: 100%;
+    height: 90%;
+    box-sizing: border-box;
+    padding: 10px 15px 5px;
+    color: #666;
+    font-size: 15px;
+}
+
+/* echarts图表容器父元素样式 */
+.echartBox{
+    margin-bottom:5px;
+}
+
+/* echarts图表容器样式 */
+.echart{
+    width: 100%;
+    height: 85%;
+    margin: 1% 0;
+    margin-bottom:5px;
+}
+
+/* echart图表鼠标划过显示全称box样式 */
+.tip{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    max-width: 400px;
+    padding: 5px;
+    z-index: 1;
+    color: #fff;
+    display:none;
+    font-size:12px;
+}
+
+/* 日志列表父元素样式 */
+.logBox{
+    overflow:hidden;
+}
+
+/* 日志总条数样式 */
+.logCounts{
+    width:100px;
+    height:100%;
+    float:right;
+    text-align:center;
+}
+
+/* 列表筛选区样式 */
+.searchBox{
+    width:100%;
+    height: 50px;
+    padding:10px 0;
+    box-sizing: border-box;
+}
+
+/* 筛选框label样式 */
+.label{
+    display:inline-block;
+    height:30px;
+    line-height:30px;
+    text-align:right;
+    font-size:13px;
+}
+
+/* 按钮样式 */
+button{
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+/* 列表分页样式 */
+.block{
+    margin:5px 0;
+    height: 30px;
+    text-align:center;
+    float:right;
+}
+
+/* 控制是否显示 */
+.show{
+    display:block;
+}
+.hide{
+    display:none;
+}
+
+/* 筛选表头模块信息 */
+.makeLists{
+    margin-bottom:10px;
+}
